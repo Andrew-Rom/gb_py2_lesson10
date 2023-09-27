@@ -12,7 +12,7 @@ class Atm():
     def main_menu(self, Card):
         while True:
             print('ATM main menu.\n'
-                  'Balance of your card is ', Card.get_balance(), '\n'
+                  'Balance of your card is', Card.get_balance(), '\n'
                                                             'Select operation:\n'
                                                             '1 - Add funds\n'
                                                             '2 - Withdraw funds\n'
@@ -36,8 +36,8 @@ class Atm():
                         print('Your card balance is less than the amount entered')
                     else:
                         self.hold_tax(Card)
-                        amount = self.get_amount() + self.atm_fee(cash)
-                        Card.withdraw_funds(money=amount)
+                        cash += self.atm_fee(cash)
+                        Card.withdraw_funds(money=cash)
                 case '0':
                     print('Thank you for using our ATM.')
                     print(Card.get_operations())
