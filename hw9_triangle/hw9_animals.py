@@ -28,25 +28,27 @@ class Bird(Animal):
 
 class CreateAnimal(Dog, Cat, Bird, Animal):
 
-    def __init__(self, animal_type, animal_name, animal_age, animal_spec):
-        self.animal = animal_type
-        self.name = animal_name
-        self.age = animal_age
-        self.spec = animal_spec
-        self.create_animal (self.animal, self.name, self.age, self.spec)
+    def __init__(self, animal, name, age, spec):
+        self.name = name
+        self.age = age
+        self.spec = spec
+        match animal.lower:
+            case 'dog':
+                self.animal = Dog(self.name, self.age, self.spec)
+            case 'cat':
+                self.animal = Cat(self.name, self.age, self.spec)
+            case 'bird':
+                self.animal = Bird(self.name, self.age, self.spec)
+            case _:
+                self.animal = Animal(self.name, self.age)
 
-    def create_animal(self, animal, name, age, spec):
-        animals = [Dog, Cat, Bird]
-        if animal in animals:
-            return animal(name, age, spec)
-        else:
-            return Animal(name, age)
 
+if __name__ == '__main__':
+    pet1 = CreateAnimal('Dog', 'Bob', 5, 'гавкает')
+    pet2 = CreateAnimal('Cat', 'Felix', 2, 'мурлычет')
+    pet3 = CreateAnimal('Bird', 'Aro', 1, 'поет')
+    pet4 = CreateAnimal('Fish', 'Pinky', 1, 'плавает')
+    pet5 = CreateAnimal('pig', 'Boss', 1, 'орет')
 
-pet1 = CreateAnimal(Dog, 'Bob', 5, 'гавкает')
-pet2 = CreateAnimal(Cat, 'Felix', 2, 'мурлычет')
-pet3 = CreateAnimal(Bird, 'Aro', 1, 'поет')
-# pet4 = CreateAnimal(Fish, 'Pinky', 1, 'плавает')
-
-for pet in [pet1, pet2, pet3]:
-     print(pet.name, pet.get_spec())
+    for pet in [pet1, pet2, pet3, pet4, pet5]:
+        print(pet.name, pet.get_spec())
