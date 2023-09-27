@@ -11,15 +11,14 @@ class Triangle:
         if a > b + c or b > a + c or c > a + b:
             raise ValueError(f'A triangle with sides {a}, {b}, {c} does not exist')
 
-    def equilateral(self):
-        """Returns True if a triangle is equilateral"""
-        return self.side_ab == self.side_bc == self.side_ac
-
-    def isosceles(self):
-        """Returns True if a triangle is isosceles"""
-        return self.side_ab == self.side_bc \
-            or self.side_ab == self.side_ac \
-            or self.side_bc == self.side_ac
+    def type_triangle(self):
+        """Returns type of a triangle"""
+        if self.side_ab == self.side_bc == self.side_ac:
+            return 'equilateral'
+        elif self.side_ab == self.side_bc or self.side_ab == self.side_ac or self.side_bc == self.side_ac:
+            return 'isosceles'
+        else:
+            return 'ordinary'
 
 
 if __name__ == '__main__':
@@ -28,5 +27,8 @@ if __name__ == '__main__':
     triangle3 = Triangle(1, 2, 3)
     triangle4 = Triangle(1, 2)
 
-    print(triangle4.equilateral())
-    print(triangle4.isosceles())
+    print(triangle1.type_triangle())
+    print(triangle2.type_triangle())
+    print(triangle3.type_triangle())
+    print(triangle4.type_triangle())
+
