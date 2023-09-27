@@ -31,4 +31,3 @@ if __name__ == '__main__':
     print(triangle2.type_triangle())
     print(triangle3.type_triangle())
     print(triangle4.type_triangle())
-
