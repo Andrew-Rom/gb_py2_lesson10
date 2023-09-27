@@ -13,10 +13,10 @@ class Atm():
         while True:
             print('ATM main menu.\n'
                   'Balance of your card is', Card.get_balance(), '\n'
-                                                            'Select operation:\n'
-                                                            '1 - Add funds\n'
-                                                            '2 - Withdraw funds\n'
-                                                            '0 - Exit and return card')
+                                                                 'Select operation:\n'
+                                                                 '1 - Add funds\n'
+                                                                 '2 - Withdraw funds\n'
+                                                                 '0 - Exit and return card')
             operation = input('> ')
             match operation:
                 case '1':
@@ -45,11 +45,9 @@ class Atm():
                 case _:
                     print('Incorrect selection. Please, try again \n')
 
-
     def get_amount(self):
         amount = input('Enter the amount > ')
         return int(amount) if amount.isdigit() and int(amount) % 50 == 0 else -1
-
 
     def atm_fee(self, money: int):
         atm_fee = money * self.__ATM_INTERESTS
@@ -62,7 +60,7 @@ class Atm():
     def operation_bonus(self, Card):
         money = Card.get_balance() * self.__BONUS
         Card.add_funds(money, operation='Got bonus')
-        Card.set_operations(0)
+        Card.set_operation_counter(0)
 
     def hold_tax(self, Card):
         if Card.get_balance() > self.__TAX_CONDITION:
