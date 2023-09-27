@@ -1,4 +1,10 @@
 class Animal:
+
+    # def __init__(self, name, age):
+    #     self.name = name
+    #     self.age = age
+    #     self.spec = None
+
     def __init__(self, name, age, spec):
         self.name = name
         self.age = age
@@ -10,18 +16,21 @@ class Animal:
 
 class Dog(Animal):
     def __init__(self, name, age, spec):
-        super().__init__(name, age,spec)
+        # super().__init__(name, age)
+        super().__init__(name, age, spec)
         self.spec = spec
 
 
 class Cat(Animal):
     def __init__(self, name, age, spec):
-        super().__init__(name, age,spec)
+        # super().__init__(name, age)
+        super().__init__(name, age, spec)
         self.spec = spec
 
 
 class Bird(Animal):
     def __init__(self, name, age, spec):
+        # super().__init__(name, age)
         super().__init__(name, age, spec)
         self.spec = spec
 
@@ -37,6 +46,7 @@ class AnimalShop:
             case 'bird':
                 animal = Bird(name, age, spec)
             case _:
+                # animal = Animal(name, age)
                 animal = Animal(name, age, spec)
         return animal
 
