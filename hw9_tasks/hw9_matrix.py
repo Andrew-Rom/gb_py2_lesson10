@@ -23,8 +23,8 @@ class Matrix():
         else:
             print('This is not matrix.')
 
-
-my_matrix = Matrix([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
-my_matrix.show_matrix()
-my_matrix.transpose_matrix()
-my_matrix.show_matrix()
+if __name__ == '__main__':
+    my_matrix = Matrix([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+    my_matrix.show_matrix()
+    my_matrix.transpose_matrix()
+    my_matrix.show_matrix()
